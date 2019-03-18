@@ -1,0 +1,22 @@
+<main role="main" class="inner cover">
+
+  <h1 class="cover-heading">Are you a Dog or Cat Person?</h1>
+  <p class="lead">Let us guess whether or not you are a dog or cat person. Enter your height and weight to see if you are a Dog or Cat person</p>
+  <div class="">
+
+    <%= form_for(Guess.new, :url => { :action => "create" }) do |f| %>
+    <div class="row">
+      <div class="col">
+        <%= f.text_field :height, placeholder: 'Height', class: "form-control form-control-lg" %>
+      </div>
+      <div class="col">
+        <%= f.text_field :weight, placeholder: 'Weight', class: "form-control form-control-lg" %>
+      </div>
+      <div class="col">
+        <%= f.button :submit, class:"btn btn-primary btn-lg btn-block" %>
+      </div>
+    </div>
+   <% end %>
+
+  </div>
+</main>
