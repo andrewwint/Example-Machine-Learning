@@ -2,21 +2,87 @@
 
   <h1 class="cover-heading">Are you a Dog or Cat Person?</h1>
   <p class="lead">Let us guess whether or not you are a dog or cat person. Enter your height and weight to see if you are a Dog or Cat person</p>
-  <div class="">
 
-    <%= form_for(Guess.new, :url => { :action => "create" }) do |f| %>
-    <div class="row">
-      <div class="col">
-        <%= f.text_field :height, placeholder: 'Height', class: "form-control form-control-lg" %>
-      </div>
-      <div class="col">
-        <%= f.text_field :weight, placeholder: 'Weight', class: "form-control form-control-lg" %>
-      </div>
-      <div class="col">
-        <%= f.button :submit, class:"btn btn-primary btn-lg btn-block" %>
+  <div>
+  <%= form_for(Guess.new, :url => { :action => "create" }) do |f| %>
+
+    <input type="hidden" id="dog_avg_ratio" value="1:2">
+    <input type="hidden" id="cat_avg_ratio" value="2:5">
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <%= f.select(:height, [], {},{ :class => 'custom-select custom-select-lg' }) do %>
+            <% height = (56..112).to_a.map { |inch| [ (inch/12).floor.to_s+'\''+(inch%12).to_s, inch.to_s ] } %>
+            <%= options_for_select(height) %>
+          <% end %>
+        </div>
+        <div class="col">
+          <%= f.text_field :weight, placeholder: 'Weight', class: "form-control form-control-lg", maxlength: "3", minlength: "2" %>
+        </div>
+
+        <div class="col">
+          <a type="button" name="button" id="guess" class="btn btn-primary btn-lg btn-block">Guess</a>
+        </div>
       </div>
     </div>
-   <% end %>
+
+    <div class="container invisible">
+      <div class="row">
+        <div class="col">
+           <div class="" id="results">
+
+           </div>
+        </div>
+      </div>
+      <div class="row ">
+        <div class="col text-right">
+           <%= f.button :Wrong, class:"btn btn-warning btn-lg", name: "answer", value:"0" %>
+        </div>
+
+        <div class="col text-left">
+           <%= f.button :Correct, class:"btn btn-success btn-lg", name: "answer", value:"1"  %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
   </div>
 </main>
+
+<%= javascript_tag do %>
+
+$( "#guess" ).click(function() {
+
+  //Defaults
+  var dog_avg_ratio = $('#dog_avg_ratio').val();
+  var cat_avg_ratio = $('#cat_avg_ratio').val();
+
+  //User input
+  var guess_height = $('#guess_height').val();
+  var guess_weight = $('#guess_weight').val();
+
+  function greatest_common_factor(a, b) {
+    return (b == 0) ? a : greatest_common_factor (b, a%b);
+  }
+
+  var answer = 1; //Dog lover by default
+  var guess_factor = greatest_common_factor(guess_height, guess_weight);
+  var guess_spread = Math.abs(guess_height/guess_factor - guess_weight/guess_factor);
+  var dog_spread   = Math.abs(parseInt(dog_avg_ratio.split(":")[0]) - parseInt(dog_avg_ratio.split(":")[1])) ;
+  var cat_spread   = Math.abs(parseInt(cat_avg_ratio.split(":")[0]) - parseInt(cat_avg_ratio.split(":")[1])) ;
+
+  //Check to see if the user is a Cat lover
+  if((guess_spread > dog_spread) && (guess_spread >= cat_spread )){
+    answer = 0;
+  }
+  console.log('Dog Spread ' + dog_spread);
+  console.log('Cat Spread ' + cat_spread);
+  console.log('Guess Ratio' + guess_height/guess_factor + ':' + guess_weight/guess_factor)
+  console.log('Guess Spread ' + guess_spread);
+  console.log('Guessed Answer ' + answer );
+
+});
+
+<% end %>

@@ -97,14 +97,20 @@ body {
 .cover {
   padding: 0 1.5rem;
 }
+
 .cover .btn-lg,
 .cover .form-control{
   padding: .75rem 1.25rem;
   font-weight: 700;
 }
 
+.cover .custom-select-lg,
 .cover .form-control-lg {
     height: calc(1.5em + 1rem + 10px);
+}
+
+.cover #results{
+  padding: 20px
 }
 
 /*
