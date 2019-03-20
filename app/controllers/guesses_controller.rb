@@ -1,22 +1,24 @@
 class GuessesController < ApplicationController
 
   def index
+    @guess = Guess.new
   end
 
   def new
-      @guess = Guess.new
+    @guess = Guess.new
   end
 
   def create
-    @guess = Guess.new(post_params)
-    #if @guess.save
-    #  redirect_to action: :index
-    #end
+    @guess = Guess.new(guess_params)
+
+    if @guess.save
+      redirect_to guess: 'index'
+    end
   end
 
   private
-  def post_params
-    params.require(:post).permit(:pet, :height, :weight, :answer)
+  def guess_params
+    params.require(:guess).permit(:pet_guess, :height, :weight, :is_correct)
   end
 
 end

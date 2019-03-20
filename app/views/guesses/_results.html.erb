@@ -1,0 +1,23 @@
+<div id="results" class="container invisible">
+  <div class="row">
+    <div class="col">
+       <div id="dog_lover" class="d-none p-5">
+         <h2>You are a Dog Lover?</h2>
+         <img src="http://www.placepuppy.net/200/200" class="img-thumbnail" alt="Puppy">
+       </div>
+       <div id="cat_lover" class="d-none p-5">
+         <h2>You are a Cat Lover?</h2>
+         <img src="http://placekitten.com/200/200" class="img-thumbnail" alt="Kitten">
+       </div>
+       <%= f.hidden_field(:pet_guess, {value: 'Dog'}) %>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="col text-right">
+      <%= f.button :Wrong, class:"btn btn-danger btn-lg" %>
+    </div>
+    <div class="col text-left">
+       <%= f.button :Correct, class:"btn btn-success btn-lg", name: "guess[is_correct]", value:"1"  %>
+    </div>
+  </div>
+</div>

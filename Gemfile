@@ -41,6 +41,8 @@ gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 
 gem 'simple_form'
+
+# JavaScript utility library
 gem 'lodash-rails'
 
 group :development, :test do

@@ -13,10 +13,10 @@
 ActiveRecord::Schema.define(version: 2019_03_18_044650) do
 
   create_table "guesses", force: :cascade do |t|
-    t.string "pet"
+    t.string "pet_guess"
     t.float "height"
     t.float "weight"
-    t.boolean "answer", default: true
+    t.boolean "is_correct", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
