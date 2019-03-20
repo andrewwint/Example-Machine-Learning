@@ -12,7 +12,7 @@ class GuessesController < ApplicationController
     @guess = Guess.new(guess_params)
 
     if @guess.save
-      redirect_to guess: 'index'
+      redirect_to "/"
     end
   end
 
