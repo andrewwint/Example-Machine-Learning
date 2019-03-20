@@ -1,6 +1,8 @@
 <main role="main" class="inner cover">
   <h1 class="cover-heading">Are you a Dog or Cat Person?</h1>
-  <p class="lead">Let us guess whether or not you are a dog or cat person. Enter your height and weight to see if you are a Dog or Cat person</p>
+  <p class="lead">Let us guess whether or not you are a dog or cat person.
+    <br />Enter your height and weight to see if you are a Dog or Cat person.
+  </p>
   <div>
     <%= form_for(Guess.new, :url => { :action => "create" }) do |f| %>
       <input type="hidden" id="dog_avg_ratio" value="1:2">
@@ -14,7 +16,7 @@
             <% end %>
           </div>
           <div class="col">
-            <%= f.text_field :weight, placeholder: 'Weight', class: "form-control form-control-lg", maxlength: "3", minlength: "2" %>
+            <%= f.number_field :weight, placeholder: 'Weight', class: "form-control form-control-lg", maxlength: "3", minlength: "2" %>
           </div>
           <div class="col">
             <a type="button" name="button" id="guess" class="btn btn-primary btn-lg btn-block">Guess</a>
@@ -23,9 +25,19 @@
       </div>
       <%= render 'results', {f: f} %>
     <% end %>
-
-   <%= render 'chart', {guess: @guess} %>
-
-
   </div>
 </main>
+
+<div id="chart-container" class="container-fluid">
+  <div class="row">
+    <div id="canvas-holder" style="width:100%">
+      <canvas id="chart"></canvas>
+    </div>
+
+    <%= javascript_tag do %>
+      document.addEventListener('DOMContentLoaded', function(){
+        renderChart(<%= @guess.cat_right %>, <%= @guess.cat_wrong %>, <%= @guess.dog_right %>, <%= @guess.dog_wrong %>);
+      });
+    <% end %>
+  </div>
+</div>

@@ -28,4 +28,22 @@ class Guess < ApplicationRecord
   validates :height, presence: true
   validates :weight, presence: true
   validates :pet_guess, presence: true
+
+  # Feedback data
+  def dog_wrong
+    Guess.where('is_correct': false, pet_guess: 'Dog').all().count
+  end
+
+  def dog_right
+    Guess.where('is_correct': true, pet_guess: 'Dog').all().count
+  end
+
+  def cat_wrong
+    Guess.where('is_correct': false, pet_guess: 'Cat').all().count
+  end
+
+  def cat_right
+    Guess.where('is_correct': true, pet_guess: 'Cat').all().count
+  end
+
 end
