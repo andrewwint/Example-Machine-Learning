@@ -46,4 +46,14 @@ class Guess < ApplicationRecord
     Guess.where('is_correct': true, pet_guess: 'Cat').all().count
   end
 
+  def dog_avg_ratio
+    # Return avg ratio from collected data
+    '1:2'
+  end
+
+  def cat_avg_ratio
+    # Return avg ratio from collected data
+    '2:5'
+  end
+
 end
