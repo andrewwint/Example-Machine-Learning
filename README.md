@@ -12,9 +12,10 @@ Things you may want to cover:
   `sqlite3`
 
 * Configuration
-  # To include `main.js` ensure `Rails.application.config.assets.precompile += %w( main.js )`
+  - To include `main.js` ensure `Rails.application.config.assets.precompile += %w( main.js )`
   is added to `config/initializers/assets.rb`
-  # Follow installation steps for `bootstrap`, `lodash`, and `Chart.bundle.min` in `app/assets/javascripts/application.js`
+  
+  - Follow installation steps for `bootstrap`, `lodash`, and `Chart.bundle.min` in `app/assets/javascripts/application.js`
 
 * Database creation
   `rake db:drop db:create db:migrate`
