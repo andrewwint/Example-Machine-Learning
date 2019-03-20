@@ -1,6 +1,23 @@
 require 'test_helper'
+require 'csv'
+require 'application_system_test_case'
+
+class Guess::CreateTest < ApplicationSystemTestCase
+
+  test "load csv file" do
+    # visit "/"
+    CSV.foreach('test/fixtures/files/AnimalHeightWeight.csv', headers: true, header_converters: :symbol) do |row|
+      # visit "/"
+      # puts row[0]
+      # puts row[1]
+      # puts row[2]
+    end
+  end
+
+end
 
 class GuessesTest < ActionDispatch::IntegrationTest
+
   test "can see the main page" do
    get "/"
    assert_select "h1", "Are you a Dog or Cat Person?"

@@ -16,14 +16,13 @@
             <% end %>
           </div>
           <div class="col">
-            <%= f.number_field :weight, placeholder: 'Your Weight', class: "form-control form-control-lg", maxlength: "3", minlength: "2", 'data-toggle'=>"tooltip", 'data-placement'=>"bottom", 'title'=>"Enter your body weight in lbs a number above 63" %>
+            <%= f.number_field :weight, placeholder: 'Weight, lbs', class: "form-control form-control-lg", maxlength: "3", minlength: "2", 'data-toggle'=>"tooltip", 'data-placement'=>"bottom", 'title'=>"Enter your body weight in lbs, a number above 63" %>
           </div>
           <div class="col">
             <a type="button" name="button" id="guess" class="btn btn-primary btn-lg btn-block">Guess</a>
           </div>
         </div>
       </div>
-
       <%= render 'results', {f: f} %>
     <% end %>
   </div>
@@ -34,7 +33,6 @@
     <div id="canvas-holder" style="width:100%">
       <canvas id="chart"></canvas>
     </div>
-
     <%= javascript_tag do %>
       document.addEventListener('DOMContentLoaded', function(){
         renderChart(<%= @guess.cat_right %>, <%= @guess.cat_wrong %>, <%= @guess.dog_right %>, <%= @guess.dog_wrong %>);

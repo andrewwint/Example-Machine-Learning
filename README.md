@@ -6,19 +6,18 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+ `Ruby 2.6.1p33` and `Rails 5.2.2.1`
 
 * System dependencies
+  `sqlite3`
 
 * Configuration
+  # To include `main.js` ensure `Rails.application.config.assets.precompile += %w( main.js )`
+  is added to `config/initializers/assets.rb`
+  # Follow installation steps for `bootstrap`, `lodash`, and `Chart.bundle.min` in `app/assets/javascripts/application.js`
 
 * Database creation
-
-* Database initialization
+  `rake db:drop db:create db:migrate`
 
 * How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  `rails test -v`

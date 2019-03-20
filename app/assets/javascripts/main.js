@@ -1,6 +1,6 @@
 $( "#guess" ).click(function() {
 
-  if($('#guess_weight').val() > 63 ){
+  if($('#guess_weight').val() > 63  && $('#guess_height').val() > 50){
     //Defaults
     var dog_avg_ratio = $('#dog_avg_ratio').val();
     var cat_avg_ratio = $('#cat_avg_ratio').val();
