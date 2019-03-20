@@ -3,10 +3,10 @@
 # Table name: guesses
 #
 #  id         :integer          not null, primary key
-#  pet        :string
+#  pet_guess        :string
 #  height     :float
 #  weight     :float
-#  answer     :boolean          default(TRUE)
+#  is_correct     :boolean          default(TRUE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -14,13 +14,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  pet: MyString
+  pet_guess: MyString
   height: 1.5
   weight: 1.5
-  answer: false
+  is_correct: false
 
 two:
-  pet: MyString
+  pet_guess: MyString
   height: 1.5
   weight: 1.5
-  answer: false
+  is_correct: false

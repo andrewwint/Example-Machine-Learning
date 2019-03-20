@@ -3,10 +3,10 @@
 # Table name: guesses
 #
 #  id         :integer          not null, primary key
-#  pet        :string
+#  pet_guess  :string
 #  height     :float
 #  weight     :float
-#  answer     :boolean          default(TRUE)
+#  is_correct     :boolean          default(TRUE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

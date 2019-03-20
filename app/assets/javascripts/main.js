@@ -92,3 +92,5 @@ function renderChart(cat_right = 10, cat_wrong = 20, dog_right = 20, dog_wrong =
 
   });
 }
+
+$('#guess_weight').tooltip('enable')
