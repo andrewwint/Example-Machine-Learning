@@ -1,0 +1,84 @@
+<div id="canvas-holder" style="width:150%;width:150%;left:-25%;position: relative;">
+  <canvas id="scatter_dog"></canvas>
+
+  <% max_weight_y_dog_owner =  @dogs.sort_by {| h | h[:weight] }.last()[2] %>
+  <% max_height_x_dog_owner =  @dogs.sort_by {| h | h[:height] }.last()[1] %>
+  <div class="">
+    Max weight <%= max_weight_y_dog_owner %>
+    <br>
+    Max height <%= max_height_x_dog_owner %>
+  </div>
+
+  <canvas id="scatter_cat"></canvas>
+  <% max_weight_y_cat_owner =  @cats.sort_by {| h | h[:weight] }.last()[2] %>
+  <% max_height_x_cat_owner =  @cats.sort_by {| h | h[:height] }.last()[1] %>
+  <div class="">
+    Max weight <%= max_weight_y_cat_owner %>
+    <br>
+    Max height <%= max_height_x_cat_owner %>
+  </div>
+
+</div>
+
+
+<%= javascript_tag do %>
+var dog_data = document.getElementById('scatter_dog').getContext('2d');
+var cat_data = document.getElementById('scatter_cat').getContext('2d');
+
+var scatterChartDog = new Chart(dog_data, {
+    type: 'scatter',
+    data: {
+        datasets: [{
+            label: 'Dogs Dataset',
+            borderColor: 'rgb(54, 162, 235)',
+				    backgroundColor: 'rgb(54, 162, 235, 0.1)',
+            data: [
+              <% @dogs.sort_by {| h | h[:weight] }.each do |dog| %>
+                {x:<%= dog[:weight] %>, y: <%= dog[:height] %>},
+              <% end %>
+            ]
+        }]
+    },
+    options: {
+        animation: {
+            duration: 0 // general animation time
+        },
+        scales: {
+            xAxes: [{
+                type: 'linear',
+                position: 'bottom'
+            }]
+        }
+    }
+});
+
+var scatterChartCat = new Chart(cat_data, {
+    type: 'scatter',
+    data: {
+        datasets: [{
+            label: 'Cats Dataset',
+            borderColor: 'rgb(255, 99, 132)',
+				    backgroundColor: 'rgb(255, 99, 132, 0.1)',
+            data: [
+              <% @cats.sort_by {| k | k[:weight] }.each do |cat| %>
+                {x: <%= cat[:weight] %>, y: <%= cat[:height] %>},
+              <% end %>
+            ]
+
+        }]
+    },
+    options: {
+      showLine: false,
+      animation: {
+            duration: 0 // general animation time
+        },
+        scales: {
+            xAxes: [{
+                type: 'linear',
+                position: 'bottom'
+            }]
+        }
+    }
+});
+
+<% end %>

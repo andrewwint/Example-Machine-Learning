@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_18_044650) do
+ActiveRecord::Schema.define(version: 2019_03_24_143639) do
+
+  create_table "animal_height_weights", force: :cascade do |t|
+    t.string "animal"
+    t.decimal "height", precision: 5, scale: 9
+    t.decimal "weight", precision: 5, scale: 9
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "guesses", force: :cascade do |t|
     t.string "pet_guess"

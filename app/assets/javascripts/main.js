@@ -34,10 +34,10 @@ $( "#guess" ).click(function() {
     $("#results" ).removeClass("invisible");
     $('#chart-container').addClass('invisible');
 
-    console.log('Dog Spread ' + dog_spread);
-    console.log('Cat Spread ' + cat_spread);
+    console.log('Dog Deviation ' + dog_spread);
+    console.log('Cat Deviation ' + cat_spread);
     console.log('Guess Ratio ' + guess_height/guess_factor + ':' + guess_weight/guess_factor)
-    console.log('Guess Spread ' + guess_spread);
+    console.log('Guess Deviation ' + guess_spread);
     console.log('Guessed Answer ' + answer );
   }
 });
