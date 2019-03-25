@@ -10,6 +10,8 @@ Secondary objective was to create an easy to user interface where the participan
  * **Visibility & Reliability:** Using comprehensive unit tests to the critical aspects of classification algorithm accuracy as well as  performance. The unit test attempt to expose what is the threshold amount of training data needed for the highest correct responses.
  * **Portability:** At minimum with the use of migration and seeders to interact with the test data for __Reliability__
 
+In summary the attempt is to 'Fall into the Pit of Success' and avoid a ['Big Ball of Mud'](http://www.laputan.org/pub/foote/mud.pdf)
+
 ## Installation and Dependencies
 
 * Ruby version `Ruby 2.6.1p33` and `Rails 5.2.2.1`
