@@ -78,3 +78,11 @@ testing = [
 ]
 
 ```
+
+### Default Settings
+
+| Settings  | Value | Notes  |
+| ---------|:------:| -------:|
+| Default seed training data      | 5000 |  Might be too low |
+| Bias      | Random  |  'Dog', 'Cat' |
+| Real training data threshold       | 20 |  after the 20th human entered inputs the system stop using seed data from CSV |
