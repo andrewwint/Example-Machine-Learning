@@ -31,9 +31,11 @@ application up and running.
   - Add the following to `app/assets/javascripts/application.js`
 
   ```javascript
-  bootstrap
-  lodash
-  Chart.bundle.min
+  //= require jquery3
+  //= require popper
+  //= require bootstrap-sprockets
+  //= require lodash
+  //= require Chart.bundle.min
   ```
 
   - Database creation
