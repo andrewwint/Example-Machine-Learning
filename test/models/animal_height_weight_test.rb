@@ -10,7 +10,7 @@ class AnimalHeightWeightTest < ActiveSupport::TestCase
   end
 
   test "find all animals that are cats" do
-    assert_equal(animal.cat_rows.group(:animal).pluck(:animal).pop, 'Cat', "Only cat found")
+    assert_equal(animal.cat_rows.group(:animal).pluck(:animal).pop, 'Cat', "Only cats found")
   end
 
   test "find training data" do
