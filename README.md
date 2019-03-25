@@ -21,11 +21,13 @@ application up and running.
 ## Configuration
   - To include `main.js` the following to `config/initializers/assets.rb`
 
-   `Rails.application.config.assets.precompile += %w( main.js )`
+   ```ruby
+   Rails.application.config.assets.precompile += %w( main.js )
+   ````
 
   - Add the following to `app/assets/javascripts/application.js`
 
-    ```
+    ```javascript
     bootstrap
     lodash
     Chart.bundle.min```
@@ -36,7 +38,7 @@ application up and running.
   ```
 
 * Starting development server
-  ```
+  ```bash
   rails s -e development
   ```
 
