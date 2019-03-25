@@ -15,13 +15,7 @@ class GuessesController < ApplicationController
       redirect_to "/"
     end
   end
-
-  def animal
-    @guess = Guess.new(guess_params)
-    # @result = @guess.guess_animal(@guess.height, @guess.weight, @guess.bias)
-    render :layout => false
-  end
-
+  
   private
   def guess_params
     params.require(:guess).permit(:pet_guess, :height, :weight, :is_correct)
