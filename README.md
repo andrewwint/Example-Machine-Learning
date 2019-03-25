@@ -27,11 +27,11 @@ application up and running.
 
   - Add the following to `app/assets/javascripts/application.js`
 
-    ```javascript
-    bootstrap
-    lodash
-    Chart.bundle.min
-    ```
+  ```javascript
+  bootstrap
+  lodash
+  Chart.bundle.min
+  ```
 
 * Database creation
   ```
@@ -43,13 +43,19 @@ application up and running.
   rails s -e development
   ```
 
-
-  ## Testing
+## Testing
   To models to use training and testing in various amounts and ratios
   ```
   rails test:models -v RAILS_ENV=development
   ```
-  To test basic page functionality 
+  To test basic page functionality
   ```
   rails test:controllers -v RAILS_ENV=test
   ```
+  Data used
+
+| Animals  | Height | Weight  |
+| ---------|:------:| -------:|
+| Dog      | 61.866 |  136.39 |
+| Cat      | 70.36  |  185.85 |
+| Dog      | 66.117 |  137.61 |
