@@ -22,7 +22,7 @@ application up and running.
   - To include `main.js` the following to `config/initializers/assets.rb`
 
    ```ruby
-      Rails.application.config.assets.precompile += %w( main.js )
+   Rails.application.config.assets.precompile += %w( main.js )
    ````
 
   - Add the following to `app/assets/javascripts/application.js`
@@ -39,7 +39,7 @@ application up and running.
   ```
 
 * Starting development server
-  ```bash
+  ```
   rails s -e development
   ```
 
