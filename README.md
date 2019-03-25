@@ -7,11 +7,11 @@ application up and running.
 
 * Ruby version `Ruby 2.6.1p33` and `Rails 5.2.2.1`
 
-* Installation
+### Installation
 
   [Install Ruby On Rails on Mac OS X 10.14 Mojave](https://gorails.com/setup/osx/10.14-mojave)
 
-* System dependencies (Gems)
+### System dependencies (Gems)
   - `sqlite3`
   - [`bootstrap`](https://github.com/twbs/bootstrap-rubygem)
   - [`chartjs-ror`](https://www.chartjs.org/samples/latest/)
