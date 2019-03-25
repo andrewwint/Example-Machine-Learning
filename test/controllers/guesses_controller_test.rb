@@ -33,7 +33,7 @@ class GuessesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "can request guess animal" do
-    post "/animal"
+    get "/animal"
     assert_response :success
   end
 end
