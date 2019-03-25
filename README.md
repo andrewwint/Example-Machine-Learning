@@ -44,11 +44,12 @@ application up and running.
   ```
 
 
-* How to run the test suite
+  ## Testing
+  To models to use training and testing in various amounts and ratios
   ```
   rails test:models -v RAILS_ENV=development
   ```
-
+  To test basic page functionality 
   ```
   rails test:controllers -v RAILS_ENV=test
   ```
