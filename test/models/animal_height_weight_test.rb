@@ -1,11 +1,65 @@
-ENV["RAILS_ENV"] = "development"
 require 'test_helper'
+require 'decisiontree'
 
 class AnimalHeightWeightTest < ActiveSupport::TestCase
 
+  animal = AnimalHeightWeight.new
+
   test "find all animals that are dogs" do
-    puts ENV["RAILS_ENV"]
+    assert_equal(animal.dog_rows.group(:animal).pluck(:animal).pop, 'Dog', "Only dogs found")
+  end
+
+  test "find all animals that are cats" do
+    assert_equal(animal.cat_rows.group(:animal).pluck(:animal).pop, 'Cat', "Only cat found")
+  end
+
+  test "find training data" do
+    assert_equal(animal.training_set().count, 200, 'Invalid traing set')
+    assert_equal(animal.training_set(500).count, 500, 'Invalid traing set')
+  end
+
+  test "find testing data" do
+    assert_equal(animal.testing_set().count, 800, 'Invalid test set')
+    assert_equal(animal.testing_set(800, 200).count, 800, 'Invalid test set')
+    assert_equal(animal.testing_set(600).count, 600, 'Invalid test set')
+  end
+
+  test "train and test small sample" do
+    guessing_using_decision_tree()
+  end
+
+  test "train and test medium sample" do
+    guessing_using_decision_tree(200, 100)
+  end
+
+  test "train and test large sample" do
+    guessing_using_decision_tree(500, 300)
+  end
+
+  test "train and test extra large sample" do
+    guessing_using_decision_tree(1000, 5000)
+  end
+
+  test "train and test all the data 80/20" do
+    guessing_using_decision_tree(2000, 8000)
+  end
+
+  def guessing_using_decision_tree(train = 5, test = 100)
+
     animal = AnimalHeightWeight.new
-    assert_equal(animal.dog_rows.group(:animal).count, '', "Only dogs found")
+
+    attributes = animal.data_set_label
+    training   = animal.training_set(train)
+    tests      = animal.testing_set(test, train)
+
+    dec_tree = DecisionTree::ID3Tree.new(attributes, training, 'Dog', Animal: :discrete, Height: :continuous, Weight: :continuous)
+    dec_tree.train
+
+    tests.each do | test |
+      decision = dec_tree.predict(test)
+      # puts "Predicted: #{decision} ... True decision: #{test.last} ... Test #{test}"
+      assert_equal(decision, test.last, "failed guess")
+    end
+
   end
 end

@@ -8,6 +8,12 @@
 
 require "csv"
 
+@animals = []
 CSV.foreach('test/fixtures/files/AnimalHeightWeight.csv', headers: true, header_converters: :symbol) do |row|
+  @animals << row.to_h
+end
+
+# Reorder to data to aid with splitting test and training data
+@animals.shuffle.each do | row |
   AnimalHeightWeight.create(row.to_h)
 end

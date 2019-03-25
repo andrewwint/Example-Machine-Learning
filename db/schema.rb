@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_03_24_143639) do
     t.decimal "weight", precision: 5, scale: 9
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["animal"], name: "index_animal_height_weights_on_animal"
   end
 
   create_table "guesses", force: :cascade do |t|

@@ -1,5 +1,5 @@
 class AnimalHeightWeightsController < ApplicationController
   def index
-    @animals = AnimalHeightWeights.new
+    @animals = AnimalHeightWeight.new
   end
 end

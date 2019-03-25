@@ -6,6 +6,6 @@ class CreateAnimalHeightWeights < ActiveRecord::Migration[5.2]
       t.decimal :weight, precision: 5, scale: 9
       t.timestamps
     end
-    # add_index :animal_height_weights, :name
+    add_index :animal_height_weights, :animal
   end
 end
