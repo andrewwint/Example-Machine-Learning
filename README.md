@@ -43,7 +43,6 @@ In summary the attempt is to 'Fall into the Pit of Success' and avoid a ['Big Ba
   //= require jquery3
   //= require popper
   //= require bootstrap-sprockets
-  //= require lodash
   //= require Chart.bundle.min
   ```
 
