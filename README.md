@@ -13,7 +13,7 @@ application up and running.
 
 * System dependencies (Gems)
   - `bootstrap` and `jquery-rails`
-  - `chartjs-ror`
+  - [`chartjs-ror`](https://www.chartjs.org/samples/latest/)
   - `lodash-rails`
   - `sqlite3`
   - `decisiontree`
@@ -46,7 +46,3 @@ application up and running.
   ```
   rails test:controllers -v RAILS_ENV=test
   ```
-
-* Charts
-
-https://www.chartjs.org/samples/latest/
