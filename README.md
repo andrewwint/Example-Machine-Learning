@@ -5,9 +5,7 @@ application up and running.
 
 ## Installation and Dependencies
 
-* Ruby version
-
- `Ruby 2.6.1p33` and `Rails 5.2.2.1`
+* Ruby version `Ruby 2.6.1p33` and `Rails 5.2.2.1`
 
 * Installation
 
@@ -19,7 +17,7 @@ application up and running.
   - `lodash-rails`
   - `sqlite3`
   - `decisiontree`
-  
+
   A Ruby library which implements [ID3 (information gain)](https://en.wikipedia.org/wiki/ID3_algorithm) algorithm for decision tree learning. Currently, continuous and discrete datasets can be learned.
 
 
