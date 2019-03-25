@@ -17,7 +17,8 @@ class GuessesController < ApplicationController
   end
 
   def animal
-    @guess = Guess.new(process_guess)
+    @guess = Guess.new(guess_params)
+    # @result = @guess.guess_animal(@guess.height, @guess.weight, @guess.bias)
     render :layout => false
   end
 
@@ -26,7 +27,4 @@ class GuessesController < ApplicationController
     params.require(:guess).permit(:pet_guess, :height, :weight, :is_correct)
   end
 
-  def process_guess
-    params.permit(:height, :weight)
-  end
 end

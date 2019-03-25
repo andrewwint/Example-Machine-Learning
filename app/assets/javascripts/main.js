@@ -1,9 +1,13 @@
-$( "#guess" ).click(function() {
+function bias(){
+  var items = ["Dog", "Cat"];
+  return items[Math.floor(Math.random()*items.length)];
+}
 
+$( "#guess" ).click(function() {
   if($('#guess_weight').val() > 63  && $('#guess_height').val() > 50){
 
-    let guess_height = _.round($('#guess_height').val(), -01);
-    let guess_weight = _.round($('#guess_weight').val(), -01);
+    let guess_height = $('#guess_height').val();
+    let guess_weight = $('#guess_weight').val();
 
     $.ajax({
       url: '/animal/'+guess_height +'/'+guess_weight,
@@ -15,23 +19,18 @@ $( "#guess" ).click(function() {
       },
       success: function(response) {
         console.log(response);
+        if(response === 'Cat'){
+          $("#cat_lover").removeClass("d-none");
+          $("#guess_pet_guess").val("Cat");
+        } else {
+          $("#dog_lover").removeClass("d-none");
+        }
+        $("#guess").addClass('disabled');
+        $("#results" ).removeClass("invisible");
+        $('#chart-container').addClass('invisible');
       }
     });
 
-
-/*
-    if((guess_spread > dog_spread) && (guess_spread >= cat_spread )){
-      answer = 0;
-      $("#cat_lover").removeClass("d-none");
-      $("#guess_pet_guess").val("Cat");
-    } else {
-      $("#dog_lover").removeClass("d-none");
-    }
-
-    $("#guess").addClass('disabled');
-    $("#results" ).removeClass("invisible");
-    $('#chart-container').addClass('invisible');
-*/
   }
 });
 

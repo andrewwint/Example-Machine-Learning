@@ -32,8 +32,4 @@ class GuessesControllerTest < ActionDispatch::IntegrationTest
     assert_select "canvas", true, "Canvas tag is missing"
   end
 
-  test "can request guess animal" do
-    get "/animal"
-    assert_response :success
-  end
 end

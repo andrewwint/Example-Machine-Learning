@@ -53,6 +53,13 @@ application up and running.
   ```
   rails test:models -v RAILS_ENV=development
   ```
+  - This is an expected result when testing models, this just means `decisiontree` needs more training data
+  ```
+  Failed random guess.
+Expected: "Dog"
+  Actual: "Cat"
+  ```
+
   To test basic page functionality
   ```
   rails test:controllers -v RAILS_ENV=test
