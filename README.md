@@ -36,15 +36,15 @@ application up and running.
   Chart.bundle.min
   ```
 
-* Database creation
-```
-rake db:drop db:create db:migrate db:seed RAILS_ENV=development
-```
+  - Database creation
+  ```
+  rake db:drop db:create db:migrate db:seed RAILS_ENV=development
+  ```
 
-* Starting development server
-```
-rails s -e development
-```
+  - Starting development server
+  ```
+  rails s -e development
+  ```
 
 ## Testing
   To models to use training and testing in various amounts and ratios
