@@ -12,20 +12,23 @@ application up and running.
   [Install Ruby On Rails on Mac OS X 10.14 Mojave](https://gorails.com/setup/osx/10.14-mojave)
 
 * System dependencies (Gems)
-  - `bootstrap` and `jquery-rails`
+  - [`bootstrap`](https://github.com/twbs/bootstrap-rubygem)
   - [`chartjs-ror`](https://www.chartjs.org/samples/latest/)
-  - `lodash-rails`
-  - `sqlite3`
-  - `decisiontree`
-
+  - [`decisiontree`](https://github.com/igrigorik/decisiontree)
   A Ruby library which implements [ID3 (information gain)](https://en.wikipedia.org/wiki/ID3_algorithm) algorithm for decision tree learning. Currently, continuous and discrete datasets can be learned.
-
+  - `sqlite3`
 
 ## Configuration
-  - To include `main.js` ensure `Rails.application.config.assets.precompile += %w( main.js )`
-  is added to `config/initializers/assets.rb`
+  - To include `main.js` the following to `config/initializers/assets.rb`
 
-  - Follow installation steps for `bootstrap`, `lodash`, and `Chart.bundle.min` in `app/assets/javascripts/application.js`
+   `Rails.application.config.assets.precompile += %w( main.js )`
+
+  - Add the following to `app/assets/javascripts/application.js`
+
+    ```
+    bootstrap
+    lodash
+    Chart.bundle.min```
 
 * Database creation
   ```
