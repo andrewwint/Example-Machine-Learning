@@ -1,6 +1,6 @@
 # Guessing Machine
 
-This a Rails application that takes in a users height and weight to predict if they like Dogs or Cats
+This a Rails application that takes in a users height and weight to predict if they like Dogs or Cats. It uses **ID3 (Iterative Dichotomiser 3)** is an algorithm invented by Ross [Quinlan](https://en.wikipedia.org/wiki/Ross_Quinlan) used to generate a decision tree from a dataset. 
 
 ## Installation and Dependencies
 
