@@ -34,14 +34,9 @@ class Guess < ApplicationRecord
     Guess.where('is_correct': true, pet_guess: 'Cat').all().count
   end
 
-  def dog_avg_ratio
-    # Return avg ratio from collected data
-    '1:2'
-  end
-
-  def cat_avg_ratio
-    # Return avg ratio from collected data
-    '2:5'
+  # random bias
+  def bias
+    ['Dog', 'Cat'].shuffle.first
   end
 
   # get training data from guesess if non is set get it from AnimalHeightWeight
@@ -62,7 +57,6 @@ class Guess < ApplicationRecord
 
   # based on the trained model guess the persons pet prefference
   def guess_animal(height, weight, animal)
-
     ani_wh        = AnimalHeightWeight.new
     attributes    = ani_wh.data_set_label
     training      = self.training_set
@@ -72,8 +66,9 @@ class Guess < ApplicationRecord
       attributes, training, 'Dog', Animal: :discrete, Height: :continuous, Weight: :continuous
     )
     dec_tree.train
-    dec_tree.predict(guess)
-
+    decision = dec_tree.predict(guess)
+    # puts "Predicted: #{decision} ... True decision: #{guess.last} ... Test #{guess}"
+    decision
   end
 
 end

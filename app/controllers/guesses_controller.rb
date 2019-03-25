@@ -16,9 +16,17 @@ class GuessesController < ApplicationController
     end
   end
 
+  def animal
+    @guess = Guess.new(process_guess)
+    render :layout => false
+  end
+
   private
   def guess_params
     params.require(:guess).permit(:pet_guess, :height, :weight, :is_correct)
   end
 
+  def process_guess
+    params.permit(:height, :weight)
+  end
 end

@@ -7,8 +7,6 @@
 
   <div>
     <%= form_for(Guess.new, :url => { :action => "create" }) do |f| %>
-      <input type="hidden" id="dog_avg_ratio" value="<%= @guess.dog_avg_ratio %>">
-      <input type="hidden" id="cat_avg_ratio" value="<%= @guess.cat_avg_ratio %>">
       <div class="container">
         <div class="row">
           <div class="col">
@@ -28,7 +26,7 @@
       <%= render 'results', {f: f} %>
     <% end %>
   </div>
-  
+
 </main>
 
 <div id="chart-container" class="container-fluid">
