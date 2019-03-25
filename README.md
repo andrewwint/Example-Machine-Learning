@@ -1,7 +1,6 @@
 # Guessing Machine
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This a Rails application that takes in a users height and weight to predict if they like Dogs or Cats
 
 ## Installation and Dependencies
 
