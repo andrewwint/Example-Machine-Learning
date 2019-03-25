@@ -21,7 +21,7 @@ class GuessTest < ActiveSupport::TestCase
   end
 
   test "find training data for guessing" do
-    assert_equal(@guess.training_set_seed().count, 500, 'Invalid training set')
+    assert_equal(@guess.training_set_seed().count, 5000, 'Invalid training set')
     assert_equal(@guess.training_set_seed(100).count, 100, 'Invalid training set')
     assert(@guess.training_set.count > 1, 'No traing data found')
   end

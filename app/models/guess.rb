@@ -41,7 +41,7 @@ class Guess < ApplicationRecord
 
   # get training data from guesess if non is set get it from AnimalHeightWeight
   def training_set
-    results = Guess.select([:is_correct, :height, :weight, :pet_guess]).limit(500)
+    results = Guess.select([:is_correct, :height, :weight, :pet_guess]).limit(2000)
 
     data = results.each.map{|e|
       if e.is_correct == false and e.pet_guess == 'Dog'
@@ -61,11 +61,11 @@ class Guess < ApplicationRecord
     else
       data
     end
-    
+
   end
 
   # get training data from AnimalHeightWeight models
-  def training_set_seed(limit = 500)
+  def training_set_seed(limit = 2000)
     ani_wh = AnimalHeightWeight.new
     ani_wh.training_set(limit)
   end
