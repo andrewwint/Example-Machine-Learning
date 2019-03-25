@@ -14,8 +14,8 @@ class AnimalHeightWeightTest < ActiveSupport::TestCase
   end
 
   test "find training data" do
-    assert_equal(animal.training_set().count, 200, 'Invalid traing set')
-    assert_equal(animal.training_set(500).count, 500, 'Invalid traing set')
+    assert_equal(animal.training_set().count, 200, 'Invalid training set')
+    assert_equal(animal.training_set(500).count, 500, 'Invalid training set')
   end
 
   test "find testing data" do
@@ -24,7 +24,7 @@ class AnimalHeightWeightTest < ActiveSupport::TestCase
     assert_equal(animal.testing_set(600).count, 600, 'Invalid test set')
   end
 
-  test "train and test with very low traing amount" do
+  test "train and test with very low training amount" do
     guessing_using_decision_tree()
   end
 

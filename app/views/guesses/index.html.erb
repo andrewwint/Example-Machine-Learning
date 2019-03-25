@@ -1,8 +1,10 @@
 <main role="main" class="inner cover">
+
   <h1 class="cover-heading">Are you a Dog or Cat Person? </h1>
   <p class="lead">Let us guess whether or not you are a dog or cat person.
     <br />Enter your height and weight to see if you are a Dog or Cat person.
   </p>
+
   <div>
     <%= form_for(Guess.new, :url => { :action => "create" }) do |f| %>
       <input type="hidden" id="dog_avg_ratio" value="<%= @guess.dog_avg_ratio %>">
@@ -26,6 +28,7 @@
       <%= render 'results', {f: f} %>
     <% end %>
   </div>
+  
 </main>
 
 <div id="chart-container" class="container-fluid">
@@ -38,6 +41,5 @@
         renderChart(<%= @guess.cat_right %>, <%= @guess.cat_wrong %>, <%= @guess.dog_right %>, <%= @guess.dog_wrong %>);
       });
     <% end %>
-
   </div>
 </div>
