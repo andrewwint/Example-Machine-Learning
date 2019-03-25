@@ -24,27 +24,27 @@ class AnimalHeightWeightTest < ActiveSupport::TestCase
     assert_equal(animal.testing_set(600).count, 600, 'Invalid test set')
   end
 
-  test "train and test small sample" do
+  test "train and test with very low traing amount" do
     guessing_using_decision_tree()
   end
 
-  test "train and test medium sample" do
-    guessing_using_decision_tree(200, 100)
+  test "train and test with small sample" do
+    guessing_using_decision_tree(20, 100)
   end
 
-  test "train and test large sample" do
-    guessing_using_decision_tree(500, 300)
+  test "train and test with medium sample" do
+    guessing_using_decision_tree(500, 4000)
   end
 
-  test "train and test extra large sample" do
-    guessing_using_decision_tree(1000, 5000)
+  test "train and test with extra large sample" do
+    guessing_using_decision_tree(800, 6000)
   end
 
-  test "train and test all the data 80/20" do
-    guessing_using_decision_tree(2000, 8000)
+  test "train and test with all the data 1:9" do
+    guessing_using_decision_tree(1000, 9000)
   end
 
-  def guessing_using_decision_tree(train = 5, test = 100)
+  def guessing_using_decision_tree(train = 5, test = 500)
 
     animal = AnimalHeightWeight.new
 
