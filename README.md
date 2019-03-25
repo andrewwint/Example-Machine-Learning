@@ -17,7 +17,7 @@ application up and running.
   - [`chartjs-ror`](https://www.chartjs.org/samples/latest/)
   - [`decisiontree`](https://github.com/igrigorik/decisiontree)
 
-  *Decision Tree*
+### Decision Tree
 
   > A Ruby library which implements [ID3 (information gain)](https://en.wikipedia.org/wiki/ID3_algorithm) algorithm for decision tree learning. Currently, continuous and discrete datasets can be learned.
 
