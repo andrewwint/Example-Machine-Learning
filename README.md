@@ -104,7 +104,7 @@ __local testing__
 __Unit testing on the imported sample data__
 
 ```
-rails test:models RAILS_ENV=development -v
+$ rails test:models RAILS_ENV=development -v
 Run options: --seed 18002
 
 # Running:
