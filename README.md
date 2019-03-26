@@ -98,6 +98,17 @@ testing = [
 | Real training data  | 2000 |  |
 
 ## Performance Benchmarks
-__Local testing__
+__local testing__
 ![Performance](https://raw.githubusercontent.com/andrewwint/GuessingMachine/master/app/assets/images/performance-report.png "Performance")
 
+__Unit testing on the imported sample data__
+
+```
+$ rails test:controllers -v RAILS_ENV=test
+Run options: --seed 53456
+
+# Running:
+
+Finished in 1.867194s, 6.9623 runs/s, 10246.9267 assertions/s.
+13 runs, 19133 assertions, 2 failures, 0 errors, 0 skips
+```
