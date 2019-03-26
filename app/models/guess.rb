@@ -39,35 +39,40 @@ class Guess < ApplicationRecord
     ['Dog', 'Cat'].shuffle.first
   end
 
-  # get training data from guesess if non is set get it from AnimalHeightWeight
-  def training_set
-    results = Guess.select([:is_correct, :height, :weight, :pet_guess]).limit(2000)
-    
+  # take all correct and incorect guesses to create an array of correct guesses
+  def transfrom_training_set(results)
     data = results.each.map{|e|
-      if e.is_correct == false and e.pet_guess == 'Dog'
+      if e.is_correct === false and e.pet_guess === 'Dog'
         [e.height.to_i, e.weight.to_i, 'Cat']
-      elsif e.is_correct == false and e.pet_guess == 'Cat'
+      elsif e.is_correct === false and e.pet_guess === 'Cat'
         [e.height.to_i, e.weight.to_i, 'Dog']
       else
         [e.height.to_i, e.weight.to_i, e.pet_guess ]
       end
     }
+    data
+  end
+
+  # get training data from guesess if none is found then it gets it from AnimalHeightWeight
+  def training_set
+    results = Guess.select([:is_correct, :height, :weight, :pet_guess]).limit(2000)
     
-    if results.count < 20
+    data = transfrom_training_set(results)
+
+    if data.count < 20
       self.training_set_seed()
     else
       data
     end
-
   end
 
-  # get training data from AnimalHeightWeight models
+  # get training data from AnimalHeightWeight model
   def training_set_seed(limit = 2000)
     ani_wh = AnimalHeightWeight.new
     ani_wh.training_set(limit)
   end
 
-  # based on the trained model guess the persons pet prefference
+  # based on the trained model, guess the persons pet prefference
   def guess_animal(height, weight, animal = self.bias)
     ani_wh        = AnimalHeightWeight.new
     attributes    = ani_wh.data_set_label
@@ -81,7 +86,7 @@ class Guess < ApplicationRecord
     decision = dec_tree.predict(test)
 
     # puts "Predicted: #{decision} ... True decision: #{guess.last} ... Test #{guess}"
-    
+
     decision
   end
 
