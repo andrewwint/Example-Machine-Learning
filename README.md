@@ -96,3 +96,8 @@ testing = [
 | Bias      | Random  |  'Dog', 'Cat' |
 | Real training data threshold       | 20 |  after the 20th human entered inputs the system stop using seed data from CSV |
 | Real training data  | 2000 |  |
+
+## Performance Benchmarks
+__Local testing__
+![Performance](https://raw.githubusercontent.com/andrewwint/GuessingMachine/master/app/assets/images/performance-report.png "Performance")
+
