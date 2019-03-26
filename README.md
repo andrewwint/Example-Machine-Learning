@@ -96,3 +96,19 @@ testing = [
 | Bias      | Random  |  'Dog', 'Cat' |
 | Real training data threshold       | 20 |  after the 20th human entered inputs the system stop using seed data from CSV |
 | Real training data  | 2000 |  |
+
+## Performance Benchmarks
+__local testing__
+![Performance](https://raw.githubusercontent.com/andrewwint/GuessingMachine/master/app/assets/images/performance-report.png "Performance")
+
+__Unit testing on the imported sample data__
+
+```
+$ rails test:models RAILS_ENV=development -v
+Run options: --seed 18002
+
+# Running:
+
+Finished in 1.867194s, 6.9623 runs/s, 10246.9267 assertions/s.
+13 runs, 19133 assertions, 2 failures, 0 errors, 0 skips
+```
