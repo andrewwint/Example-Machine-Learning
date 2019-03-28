@@ -17,6 +17,7 @@ $( "#guess" ).click(function() {
     });
 
     function AjaxSucceeded(result) {
+      console.log(result);
       var obj = jQuery.parseJSON( result );
       if (obj.guess === "Cat") {
         $("#cat_lover").removeClass("d-none");

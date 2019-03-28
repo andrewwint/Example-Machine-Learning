@@ -56,10 +56,10 @@ class Guess < ApplicationRecord
   # get training data from guesess if none is found then it gets it from AnimalHeightWeight
   def training_set
     results = Guess.select([:is_correct, :height, :weight, :pet_guess]).limit(2000)
-    
+
     data = transfrom_training_set(results)
 
-    if data.count < 20
+    if data.count < 200
       self.training_set_seed()
     else
       data
@@ -67,7 +67,7 @@ class Guess < ApplicationRecord
   end
 
   # get training data from AnimalHeightWeight model
-  def training_set_seed(limit = 2000)
+  def training_set_seed(limit = 5000)
     ani_wh = AnimalHeightWeight.new
     ani_wh.training_set(limit)
   end
@@ -80,7 +80,7 @@ class Guess < ApplicationRecord
     test          = [height, weight, animal]
 
     dec_tree = DecisionTree::ID3Tree.new(
-      attributes, training, 'Dog', Animal: :discrete, Height: :continuous, Weight: :continuous
+      attributes, training, animal, Animal: :discrete, Height: :continuous, Weight: :continuous
     )
     dec_tree.train
     decision = dec_tree.predict(test)

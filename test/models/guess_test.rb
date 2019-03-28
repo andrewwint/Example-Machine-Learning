@@ -42,17 +42,18 @@ class GuessTest < ActiveSupport::TestCase
     assert_equal(@guess.guess_animal(70, 202,'Cat'), "Cat", "Failed 'Cat' guess")
   end
 
-  test "test if user likes dogs with knowing the answer" do
-    assert_equal(@guess.guess_animal(55, 134, @guess.bias), @guess.bias, "Failed random guess")
-    assert_equal(@guess.guess_animal(63, 133, @guess.bias), @guess.bias, "Failed random guess")
-    assert_equal(@guess.guess_animal(68, 144, @guess.bias), @guess.bias, "Failed random guess")
-    assert_equal(@guess.guess_animal(68, 161, @guess.bias), @guess.bias, "Failed random guess")
-    assert_equal(@guess.guess_animal(70, 202, @guess.bias), @guess.bias, "Failed random guess")
-    assert_equal(@guess.guess_animal(72, 198, @guess.bias), @guess.bias, "Failed random guess")
-    assert_equal(@guess.guess_animal(70, 192, @guess.bias), @guess.bias, "Failed random guess")
-    assert_equal(@guess.guess_animal(67, 170, @guess.bias), @guess.bias, "Failed random guess")
-    assert_equal(@guess.guess_animal(67, 176, @guess.bias), @guess.bias, "Failed random guess")
-    assert_equal(@guess.guess_animal(70, 202, @guess.bias), @guess.bias, "Failed random guess")
+  test "real world testing to ensure nil isn't returned" do
+    assert_not_nil(@guess.guess_animal(55, 134, @guess.bias), "Failed random guess nil value found")
+    assert_not_nil(@guess.guess_animal(63, 133, @guess.bias), "Failed random guess nil value found")
+    assert_not_nil(@guess.guess_animal(68, 144, @guess.bias), "Failed random guess nil value found")
+    assert_not_nil(@guess.guess_animal(68, 161, @guess.bias), "Failed random guess nil value found")
+    assert_not_nil(@guess.guess_animal(70, 202, @guess.bias), "Failed random guess nil value found")
+    assert_not_nil(@guess.guess_animal(72, 198, @guess.bias), "Failed random guess nil value found")
+    assert_not_nil(@guess.guess_animal(70, 192, @guess.bias), "Failed random guess nil value found")
+    assert_not_nil(@guess.guess_animal(67, 170, @guess.bias), "Failed random guess nil value found")
+    assert_not_nil(@guess.guess_animal(67, 176, @guess.bias), "Failed random guess nil value found")
+    assert_not_nil(@guess.guess_animal(70, 202, @guess.bias), "Failed random guess nil value found")
   end
+
 
 end

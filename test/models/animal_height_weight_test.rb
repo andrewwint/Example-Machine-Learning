@@ -45,7 +45,7 @@ class AnimalHeightWeightTest < ActiveSupport::TestCase
     guessing_using_decision_tree(1000, 9000)
   end
 
-  def guessing_using_decision_tree(train = 5, test = 500)
+  def guessing_using_decision_tree(train = 10, test = 500)
 
     @animal = AnimalHeightWeight.new
 
