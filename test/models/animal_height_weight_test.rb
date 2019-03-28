@@ -30,7 +30,11 @@ class AnimalHeightWeightTest < ActiveSupport::TestCase
   end
 
   test "train and test with small sample" do
-    guessing_using_decision_tree(20, 100)
+    guessing_using_decision_tree(100, 2000)
+  end
+
+  test "train and test with small to medium sample" do
+    guessing_using_decision_tree(200, 2000)
   end
 
   test "train and test with medium sample" do
@@ -45,7 +49,7 @@ class AnimalHeightWeightTest < ActiveSupport::TestCase
     guessing_using_decision_tree(1000, 9000)
   end
 
-  def guessing_using_decision_tree(train = 10, test = 500)
+  def guessing_using_decision_tree(train = 50, test = 500)
 
     @animal = AnimalHeightWeight.new
 
