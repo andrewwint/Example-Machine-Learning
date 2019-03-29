@@ -55,14 +55,9 @@ In summary the attempt is to 'Fall into the Pit of Success' and avoid a ['Big Ba
   pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
   ```
 
-  - Migration
+  - Migration local development
   ```
   rake db:drop db:create db:migrate db:seed RAILS_ENV=development
-  ```
-
-  - Heroku postgresql setup
-  ```
-  heroku addons:create heroku-postgresql
   ```
 
   - Starting development server
@@ -70,11 +65,23 @@ In summary the attempt is to 'Fall into the Pit of Success' and avoid a ['Big Ba
   rails s -e development
   ```
 
-  - Deploy to Heroku
+## Heroku Deployment and setup
+
+  - Deploying to Heroku
+  Commit and push as usual `git commit... git push` then push to heroku
   ```
-  git commit...
-  git push
   git push heroku master
+  ```
+
+  - Postgresql installation
+  Configure `database.yml` with your database username and password
+
+  ```
+  heroku addons:create heroku-postgresql
+  ```
+  - Migration
+  ```
+  heroku rake db:migrate db:seed
   ```
 
 ## Testing
