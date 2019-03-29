@@ -11,11 +11,11 @@ default: &default
 
 production:
   <<: *default
-  host: ec2-75-101-133-29.compute-1.amazonaws.com
-  database: d7c76lu8rvo492
-  username: qqewsbnjpthtfr
-  password: a180859635b16c9780eb178162827d8e31c327499de72b4f16e65c00bca52259
-  port: 5432
+  host:
+  database:
+  username:
+  password:
+  port: 
 
 development:
   <<: *default
