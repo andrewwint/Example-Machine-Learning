@@ -123,6 +123,9 @@ testing = [
 __local testing__
 ![Performance](https://raw.githubusercontent.com/andrewwint/GuessingMachine/master/app/assets/images/performance-report.png "Performance")
 
+__production testing__
+![ProductionPerformance](https://raw.githubusercontent.com/andrewwint/GuessingMachine/master/app/assets/images/performance-report-prod.png)
+
 __Unit testing on the imported sample data__
 
 ```
