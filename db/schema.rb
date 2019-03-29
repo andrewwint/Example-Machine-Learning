@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2019_03_24_143639) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "animal_height_weights", force: :cascade do |t|
     t.string "animal"
-    t.decimal "height", precision: 5, scale: 9
-    t.decimal "weight", precision: 5, scale: 9
+    t.float "height"
+    t.float "weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["animal"], name: "index_animal_height_weights_on_animal"

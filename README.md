@@ -21,7 +21,8 @@ In summary the attempt is to 'Fall into the Pit of Success' and avoid a ['Big Ba
   [Install Ruby On Rails on Mac OS X 10.14 Mojave](https://gorails.com/setup/osx/10.14-mojave)
 
 ### System dependencies (Gems)
-  - `sqlite3`
+  - ~~`sqlite3`~~
+  - `pg`
   - [`bootstrap`](https://github.com/twbs/bootstrap-rubygem)
   - [`chartjs-ror`](https://www.chartjs.org/samples/latest/)
   - [`decisiontree`](https://github.com/igrigorik/decisiontree)
@@ -46,10 +47,21 @@ In summary the attempt is to 'Fall into the Pit of Success' and avoid a ['Big Ba
   //= require Chart.bundle.min
   ```
 
-  - Database creation
+  - Database
+  Starting Postgress
+  ```
+  pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+  ```
+
+  Migration
   ```
   rake db:drop db:create db:migrate db:seed RAILS_ENV=development
   ```
+  Heroku postgresql setup
+  ```
+  heroku addons:create heroku-postgresql
+  ```
+
 
   - Starting development server
   ```
