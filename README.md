@@ -5,7 +5,7 @@
 This a Rails application that takes in a users height and weight to predict if they like Dogs or Cats. It uses **ID3 (Iterative Dichotomiser 3)** is an algorithm invented by [Ross Quinlan](https://en.wikipedia.org/wiki/Ross_Quinlan) used to generate a decision tree from a dataset.
 
 ## Overview and Objectives
-1. This is my first end-to-end Ruby on Rails application with 45 plus hours spread over 2 weeks. Only experience with RoR was 10+ years ago just doing frontend work on app (view only). Which was 5-10%  of my time, just as support the team while working as a dedicated LAMP developer.
+1. This is my first end-to-end Ruby on Rails application with 45 plus hours of learning spread over 2 weeks. Only experience with RoR was 10+ years ago just doing frontend work on app (view only). Which was 5-10%  of my time, just as support the team while working as a dedicated LAMP developer.
 
 2. Overall approach as in any software and network application is the attempt to adhere to **[Roy Fielding’s REST Architecture](http://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf)** where the goal it align with any number of his 7 principals around *__Performance__, __Scalability__, __Simplicity__, __Modifiability__, __Visibility__, __Portability__, and __Reliability__* where they best apply.
 Secondary objective was to create an easy to user interface where the participant would be provided with a simple to use interface that wouldn't be intimidating and games like.
