@@ -34,6 +34,14 @@ class Guess < ApplicationRecord
     Guess.where('is_correct': true, pet_guess: 'Cat').all().count
   end
 
+  def wrong_guesses
+    Guess.where('is_correct': false).order("to_char(created_at,'DDDHH24MI')").group("to_char(created_at,'DDDHH24MI')").count
+  end
+
+  def correct_guesses
+    Guess.where('is_correct': true).order("to_char(created_at,'DDDHH24MI')").group("to_char(created_at,'DDDHH24MI')").count
+  end
+
   # random bias
   def bias
     ['Dog', 'Cat'].shuffle.first

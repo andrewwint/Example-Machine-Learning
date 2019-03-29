@@ -4,7 +4,7 @@ class GuessesController < ApplicationController
     @guess = Guess.new
   end
 
-  def new
+  def show
     @guess = Guess.new
   end
 
@@ -15,7 +15,7 @@ class GuessesController < ApplicationController
       redirect_to "/"
     end
   end
-  
+
   private
   def guess_params
     params.require(:guess).permit(:pet_guess, :height, :weight, :is_correct)

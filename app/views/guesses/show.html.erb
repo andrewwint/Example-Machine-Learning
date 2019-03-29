@@ -1,0 +1,41 @@
+<h1>Wrong Guess Report</h1>
+<div id="canvas-holder" style="width:150%;width:150%;left:-25%;position: relative;">
+  <canvas id="correct_guesses"></canvas>
+
+</div>
+
+<%= javascript_tag do %>
+var correct_guesses = document.getElementById('correct_guesses').getContext('2d');
+
+
+var scatterGorrectguesses = new Chart(correct_guesses, {
+    type: 'bubble',
+    data: {
+        datasets: [{
+            label: 'Wrong Guesses',
+            borderColor: 'rgb(54, 162, 235)',
+				    backgroundColor: 'rgb(54, 162, 235, 0.1)',
+            radius: 20,
+            borderWidth: 3,
+            data: [
+            <% @guess.wrong_guesses.each do | key, value| %>
+              {x:<%= key %>, y: <%= value %>, r:(<%= value %> * 5)},
+            <% end %>
+            ]
+        }]
+    },
+    options: {
+        animation: {
+            duration: 0 // general animation time
+        },
+        scales: {
+            xAxes: [{
+                type: 'linear',
+                position: 'bottom'
+            }]
+        }
+    }
+});
+
+
+<% end %>
