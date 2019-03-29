@@ -1,5 +1,7 @@
 # Guessing Machine
 
+> [Guessing Machine Demo](https://mighty-oasis-79584.herokuapp.com/)
+
 This a Rails application that takes in a users height and weight to predict if they like Dogs or Cats. It uses **ID3 (Iterative Dichotomiser 3)** is an algorithm invented by [Ross Quinlan](https://en.wikipedia.org/wiki/Ross_Quinlan) used to generate a decision tree from a dataset.
 
 ## Overview and Objectives
@@ -57,15 +59,22 @@ In summary the attempt is to 'Fall into the Pit of Success' and avoid a ['Big Ba
   ```
   rake db:drop db:create db:migrate db:seed RAILS_ENV=development
   ```
+
   - Heroku postgresql setup
   ```
   heroku addons:create heroku-postgresql
   ```
 
-
   - Starting development server
   ```
   rails s -e development
+  ```
+
+  - Deploy to Heroku
+  ```
+  git commit...
+  git push
+  git push heroku master
   ```
 
 ## Testing

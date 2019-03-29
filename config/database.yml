@@ -9,6 +9,14 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
+production:
+  <<: *default
+  host: ec2-75-101-133-29.compute-1.amazonaws.com
+  database: d7c76lu8rvo492
+  username: qqewsbnjpthtfr
+  password: a180859635b16c9780eb178162827d8e31c327499de72b4f16e65c00bca52259
+  port: 5432
+
 development:
   <<: *default
   database: gm_database_development
@@ -19,7 +27,3 @@ development:
 test:
   <<: *default
   database: gm_database_test
-
-production:
-  <<: *default
-  database: gm_database_production
