@@ -53,11 +53,11 @@ In summary the attempt is to 'Fall into the Pit of Success' and avoid a ['Big Ba
   pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
   ```
 
-  Migration
+  - Migration
   ```
   rake db:drop db:create db:migrate db:seed RAILS_ENV=development
   ```
-  Heroku postgresql setup
+  - Heroku postgresql setup
   ```
   heroku addons:create heroku-postgresql
   ```
