@@ -136,6 +136,6 @@ Run options: --seed 18002
 
 # Running:
 
-Finished in 1.867194s, 6.9623 runs/s, 10246.9267 assertions/s.
-13 runs, 19133 assertions, 2 failures, 0 errors, 0 skips
+Finished in 7.968875s, 1.7568 runs/s, 2952.7380 assertions/s.
+14 runs, 23530 assertions, 0 failures, 0 errors, 0 skips
 ```
